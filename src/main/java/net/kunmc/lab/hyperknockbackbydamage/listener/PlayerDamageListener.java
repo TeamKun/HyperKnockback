@@ -11,6 +11,10 @@ import org.bukkit.util.Vector;
 public class PlayerDamageListener implements ListenerAction<EntityDamageEvent> {
     @Override
     public void execute(EntityDamageEvent e) {
+        if (!Config.isEnabled) {
+            return;
+        }
+
         if (!(e.getEntity() instanceof Player)) {
             return;
         }
