@@ -14,16 +14,41 @@ public class PlayerDamageListener implements ListenerAction<EntityDamageEvent> {
         if (!(e.getEntity() instanceof Player)) {
             return;
         }
-        Player p = ((Player) e.getEntity());
 
-        Vector direction = p.getEyeLocation().getDirection();
-        direction.multiply(-Config.knockbackCoefficient);
+        new SetVelocityTask(((Player) e.getEntity())).runTaskTimerAsynchronously(HyperKnockbackByDamage.instance, 0, 4);
+    }
+}
 
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                p.setVelocity(direction);
-            }
-        }.runTaskLater(HyperKnockbackByDamage.instance, 1);
+class SetVelocityTask extends BukkitRunnable {
+    private int count = 0;
+    private final int numberOfTimes = ((int) Math.ceil(Config.knockbackCoefficient / 4));
+    private final Player target;
+    private final Vector vector;
+
+    SetVelocityTask(Player target) {
+        this.target = target;
+
+        Vector direction = target.getEyeLocation().getDirection().clone();
+        if (Config.knockbackCoefficient > 4) {
+            direction.multiply(-4);
+        } else {
+            direction.multiply(-Config.knockbackCoefficient);
+        }
+        this.vector = direction;
+    }
+
+    @Override
+    public void run() {
+        if (target.isDead()) {
+            this.cancel();
+            return;
+        }
+
+        target.setVelocity(vector);
+
+        count++;
+        if (count >= numberOfTimes) {
+            this.cancel();
+        }
     }
 }
