@@ -1,0 +1,4 @@
+name: HyperKnockbackByDamage
+version: '${project.version}'
+main: net.kunmc.lab.hyperknockbackbydamage.HyperKnockbackByDamage
+api-version: 1.16
