@@ -17,8 +17,7 @@ public class PlayerDamageListener implements ListenerAction<EntityDamageEvent> {
         Player p = ((Player) e.getEntity());
 
         Vector direction = p.getEyeLocation().getDirection();
-        direction.multiply(new Vector(-1, -1, -1));
-        direction.multiply(Config.knockbackCoefficient);
+        direction.multiply(-Config.knockbackCoefficient);
 
         new BukkitRunnable() {
             @Override

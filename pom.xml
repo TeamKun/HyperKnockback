@@ -13,6 +13,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <kotlin.version>1.5.30</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -74,6 +75,11 @@
             <groupId>dev.kotx</groupId>
             <artifactId>flylib-reloaded</artifactId>
             <version>0.3.18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
         </dependency>
     </dependencies>
 </project>
