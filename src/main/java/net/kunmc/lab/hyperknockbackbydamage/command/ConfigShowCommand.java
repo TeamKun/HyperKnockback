@@ -1,7 +1,8 @@
-package net.kunmc.lab.hyperknockbackbydamage;
+package net.kunmc.lab.hyperknockbackbydamage.command;
 
 import dev.kotx.flylib.command.Command;
 import dev.kotx.flylib.command.CommandContext;
+import net.kunmc.lab.hyperknockbackbydamage.Config;
 
 import java.lang.reflect.Field;
 
