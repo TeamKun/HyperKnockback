@@ -43,7 +43,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>dev.kotx.flylib</pattern>
-                                    <shadedPattern>${project.groupId}</shadedPattern>
+                                    <shadedPattern>net.kunmc.lab.hyperknockbackbydamage</shadedPattern>
                                     <excludes>
                                     </excludes>
                                 </relocation>
